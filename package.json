@@ -1,0 +1,13 @@
+{
+  "name": "electron-mini-video-app",
+  "version": "0.1.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^6.0.10"
+  }
+}
