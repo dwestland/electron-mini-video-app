@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Security-Policy" content="script-src 'self';" />
   </head>
   <body>
-    <h1>Hello World!</h1>
+    <h1>Electron Mini Video Player</h1>
     <!-- We are using node <script>document.write(process.versions.node)</script>,
     Chrome <script>document.write(process.versions.chrome)</script>,
     and Electron <script>document.write(process.versions.electron)</script>. -->
@@ -18,11 +18,11 @@
     <br><br><br>
     <img src="boats.jpg" >
 
-    <video src="test.mp4" autoplay="true" loop="true"></video>
+    <!-- <video src="test.mp4" autoplay="true" loop="true"></video> -->
 
-    <video src="glitch-test.mp4" autoplay="true" loop="true"></video>
+    <!-- <video src="glitch-test.mp4" autoplay="true" loop="true"></video> -->
     
-    
+    <script src="./renderer.js"></script>
 
     <script>
       document.getElementById("play-video").addEventListener("click", () => {
