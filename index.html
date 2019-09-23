@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Hello World!</title>
     <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self';" />
+    <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self';" /> -->
   </head>
   <body>
     <h1>Electron Mini Video Player</h1>
@@ -14,6 +14,7 @@
 
     <hr>
     <button id="play-video">Start</button>
+    <div id="result"></div>
     
     <br><br><br>
     <img src="boats.jpg" >
@@ -24,14 +25,44 @@
     
     <script src="./renderer.js"></script>
 
+
+
     <script>
+
       document.getElementById("play-video").addEventListener("click", () => {
         const audio = new Audio("wet-click.wav")
-        // audio.play()
+        audio.play()
         document.getElementById("result").innerHTML = "Boom";
-        // handleOpenNewWindow()
+
+        createBrowserWindow()
       })
-    </script>
+
+
+      const handleOpenVideoWindow = () => {
+        const { app, BrowserWindow } = require('electron')
+        console.log('handleOpenVideoWindow')
+        app.on('ready', createVideoWindow)
+
+      }
+
+      function createBrowserWindow() {
+        const remote = require('electron').remote;
+        const BrowserWindow = remote.BrowserWindow;
+        const win = new BrowserWindow({
+          height: 300,
+          width: 400,
+          // fullscreen: true
+
+        });
+        win.loadFile('video-window.html');
+        win.maximize()
+      }
+
+
+      </script>
+
+
+
 
 
   </body>

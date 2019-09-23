@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Video Window</title>
+    <style>
+      body {
+        background: lightblue;
+      }
+      .fullscreen-video-wrap{
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:100vh;
+        overflow:hidden;
+      }
+      .close-button {
+        z-index: 2
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <h1>Video Window</h1>
+    We are using node <script>document.write(process.versions.node)</script>,
+    Chrome <script>document.write(process.versions.chrome)</script>,
+    and Electron <script>document.write(process.versions.electron)</script>.
+
+    <hr> -->
+    <button class="close-button">close</button>
+
+    <div class="fullscreen-video-wrap">
+      <video src="test.mp4" autoplay="true" loop="true"></video>
+    </div>
+
+    <script src="./renderer.js"></script>
+
+    <script>
+      console.log('Video window loaded')
+    </script>
+
+
+  </body>
+</html>
