@@ -5,27 +5,16 @@
     <title>Hello World!</title>
     <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
     <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self';" /> -->
+    <link rel="stylesheet" href="styles.css">
+
   </head>
   <body>
-    <h1>Electron Mini Video Player</h1>
-    <!-- We are using node <script>document.write(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>. -->
+    <div class="homepage-container">
+      <button class="homepage-button" id="play-video">Start</! -->
+      <div id="result"></div>
+    </div>
 
-    <hr>
-    <button id="play-video">Start</button>
-    <div id="result"></div>
-    
-    <br><br><br>
-    <img src="boats.jpg" >
-
-    <!-- <video src="test.mp4" autoplay="true" loop="true"></video> -->
-
-    <!-- <video src="glitch-test.mp4" autoplay="true" loop="true"></video> -->
-    
     <script src="./renderer.js"></script>
-
-
 
     <script>
 
@@ -49,21 +38,41 @@
         const remote = require('electron').remote;
         const BrowserWindow = remote.BrowserWindow;
         const win = new BrowserWindow({
-          height: 300,
-          width: 400,
-          // fullscreen: true
+          // height: 300,
+          // width: 400,
+          // fullscreen: true,
+          // kiosk: true,
+
+        frame: false,
+        fullscreen: true,
+        x: 0,
+        y: 0,
+        // width: area.width,
+        // height: area.height
+
+        // width: 10000,
+        // height: 10000,
+
+        autoHideMenuBar: true
 
         });
+
+        win.webContents.openDevTools()
         win.loadFile('video-window.html');
         win.maximize()
+
       }
 
 
+
+
+
+const remote = require('electron').remote;
+
+document.getElementById("close-button").addEventListener("click", function (e) {
+  var window = remote.getCurrentWindow();
+  win.close();
+});
       </script>
-
-
-
-
-
   </body>
 </html>
