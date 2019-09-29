@@ -4,58 +4,47 @@
     <meta charset="UTF-8">
     <title>Video Window</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-      /* body {
-        background: lightblue;
-      }
-      .fullscreen-video-wrapper{
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        overflow: hidden;
-      } */
-
-    </style>
+    <link rel="stylesheet" href="weather.css">
   </head>
   <body>
-    <!-- <h1>Video Window</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
-    
-    <hr> -->
     <div class="video-page">
-      
 
-        <!-- <video src="test.mp4" autoplay="true" loop="true" id="myVideo"> -->
+      <div class="fullscreen-video-wrap">
+        <video src="test.mp4" autoplay="true" loop="true"></video>
+      </div>
 
-        <!-- <video autoplay muted loop id="myVideo">
-          <source src="test.mp4" type="video/mp4">
-        </!-->
+      <div id="weather" class="weather"></div>
 
+      <button id="close-button">close</button>
 
+      <button id="weather-button">Weather</button>
 
-      <button id="close-button" class="close-button">close</button>
+    </div>
 
-
-
-    <script src="./renderer.js"></script>
+    <!-- <script src="./renderer.js"></script> -->
 
     <script>
       console.log('Video window loaded')
 
-      // const remote = require('electron').remote;
+      const remote = require('electron').remote;
 
+      document.getElementById("close-button").addEventListener("click", () => {
+        console.log('close video')
+        const window = remote.getCurrentWindow()
+        window.close()
+      })
 
+      document.getElementById("weather-button").addEventListener("click", () => {
+        console.log('weather')
+        
+        const audio = new Audio("wet-click.wav")
+        audio.play()
+        
+        const element = document.getElementById("weather");
+        element.classList.toggle("display-on");
+      })
 
-      // document.getElementById("close-button").addEventListener("click", function (e) {
-      //   var window = remote.getCurrentWindow();
-      //   win.close();
-      // });
     </script>
-
-
+    <script src="weather-widget.js"></script>
   </body>
 </html>

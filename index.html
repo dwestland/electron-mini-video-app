@@ -10,8 +10,8 @@
   </head>
   <body>
     <div class="homepage-container">
-      <button class="homepage-button" id="play-video">Start</! -->
-      <div id="result"></div>
+      <button class="homepage-button" id="play-video">Start Video</button>
+      <!-- <div id="result"></div> -->
     </div>
 
     <script src="./renderer.js"></script>
@@ -21,7 +21,7 @@
       document.getElementById("play-video").addEventListener("click", () => {
         const audio = new Audio("wet-click.wav")
         audio.play()
-        document.getElementById("result").innerHTML = "Boom";
+        // document.getElementById("result").innerHTML = "Boom";
 
         createBrowserWindow()
       })
@@ -38,41 +38,37 @@
         const remote = require('electron').remote;
         const BrowserWindow = remote.BrowserWindow;
         const win = new BrowserWindow({
-          // height: 300,
-          // width: 400,
+          height: 300,
+          width: 800,
           // fullscreen: true,
           // kiosk: true,
 
-        frame: false,
-        fullscreen: true,
-        x: 0,
-        y: 0,
-        // width: area.width,
-        // height: area.height
+          // frame: false,
+          fullscreen: true,
 
-        // width: 10000,
-        // height: 10000,
 
-        autoHideMenuBar: true
+          // x: 0,
+          // y: 0,
+          // width: area.width,
+          // height: area.height
+          // autoHideMenuBar: true
 
-        });
+          webPreferences: {
+            nodeIntegration: true
+          }
+        })
 
         win.webContents.openDevTools()
         win.loadFile('video-window.html');
-        win.maximize()
-
+        // win.maximize()
       }
 
+      // const remote = require('electron').remote;
 
-
-
-
-const remote = require('electron').remote;
-
-document.getElementById("close-button").addEventListener("click", function (e) {
-  var window = remote.getCurrentWindow();
-  win.close();
-});
+      // document.getElementById("close-button").addEventListener("click", function (e) {
+      //   var window = remote.getCurrentWindow();
+      //   win.close();
+      // });
       </script>
   </body>
 </html>

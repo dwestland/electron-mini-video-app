@@ -3,13 +3,12 @@ html {
   margin: 0;
 }
 
-button {
-  border-radius: 5px;
-  border: black solid 2px;
-  cursor: pointer;
-  font-size: 36px;
-  padding: 20px;
-
+body {
+  color: #2e2e2e;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .homepage-container {
@@ -20,44 +19,93 @@ button {
   justify-content: center;
 }
 
-.homepage-button {
-  border-color: blue;
-  color: darkblue;
-
-}
-
 .video-page {
   background: lightblue;
-
   display: flex;
   height: 100vh;
   justify-content: center;
   position: relative;
 }
 
-.close-button {
-  background: lightgreen;
-  color: darkgreen;
-  z-index: 10;
-
-  position: absolute;
-  left: 10vh;
-  bottom: 10vh;
-
-}
-
 #myVideo {
-
-  /* position: absolute;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  min-height: 100%; */
-
-  z-index: 1;
-
-
-  width: auto;
   height: 100%;
-
+  width: auto;
+  z-index: 1;
 }
+
+.fullscreen-video-wrap {
+  background-color: lightblue;
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  
+}
+
+video {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  min-height: 50%;
+  min-width: 50%;
+  z-index: 1;
+}
+
+.weather {
+  display: none;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.display-on {
+  display: block;
+}
+
+/* .display-off {
+  display: none;
+} */
+
+/* Button Styles */
+
+button {
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 36px;
+  padding: 20px 40px;
+  z-index: 10;
+}
+
+.homepage-button {
+  background: lightblue;
+  border: darkblue solid 2px;
+  color: darkblue;
+}
+
+#close-button {
+  background: none;
+  border: #ffffff solid 2px;
+  bottom: 10vh;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, .3);
+  color: #ffffff;
+  left: 5vh;
+  position: absolute;
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, .3);
+}
+
+#weather-button {
+  background: none;
+  border: #ffffff solid 2px;
+  bottom: 10vh;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, .3);
+  color: #ffffff;
+  position: absolute;
+  right: 5vh;
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, .3);
+}
+/* End Button Styles */
