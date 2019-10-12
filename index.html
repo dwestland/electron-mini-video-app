@@ -14,7 +14,7 @@
       <!-- <div id="result"></div> -->
     </div>
 
-    <script src="./renderer.js"></script>
+    <!-- <script src="./renderer.js"></script> -->
 
     <script>
 
@@ -35,11 +35,11 @@
       }
 
       function createBrowserWindow() {
-        const remote = require('electron').remote;
-        const BrowserWindow = remote.BrowserWindow;
+        const remote = require('electron').remote
+        const BrowserWindow = remote.BrowserWindow
         const win = new BrowserWindow({
-          height: 300,
-          width: 800,
+          // height: 300,
+          // width: 800,
           // fullscreen: true,
           // kiosk: true,
 
@@ -58,8 +58,8 @@
           }
         })
 
-        win.webContents.openDevTools()
-        win.loadFile('video-window.html');
+        // win.webContents.openDevTools()
+        win.loadFile('video-window.html')
         // win.maximize()
       }
 
