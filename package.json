@@ -8,6 +8,6 @@
   },
   "license": "MIT",
   "dependencies": {
-    "electron": "^6.0.10"
+    "electron": "^11.5.0"
   }
 }
